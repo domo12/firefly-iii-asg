@@ -2,10 +2,15 @@ language: php
 php:
   - "7.4"  # Use the desired PHP version
 
+# Cache Composer dependencies
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 # Install project dependencies
 install:
   - composer install
 
 # Run PHPUnit tests
 script:
-  - firefly-iii-asg/tests/unit/Support/NavigationAddPeriodTest.php
+  - ./vendor/bin/phpunit
