@@ -1,1 +1,11 @@
 language: php
+php:
+  - "7.4"  # Use the desired PHP version
+
+# Install project dependencies
+install:
+  - composer install
+
+# Run PHPUnit tests
+script:
+  - firefly-iii-asg/tests/unit/Support/NavigationAddPeriodTest.php
