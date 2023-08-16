@@ -4,8 +4,31 @@ php:
   - 7.4
   - 8.0
 
+install:
+  - composer install --no-interaction
+
 before_script:
-  - composer install --prefer-source --no-interaction --dev
+  - cp .env.travis .env
+  - php artisan key:generate
+  - php artisan migrate --seed
 
 script:
-  - vendor/bin/phpunit tests\unit\Support\NavigationAddPeriodTest.php
+  - vendor/bin/phpunit --configuration phpunit.xml
+
+branches:
+  only:
+    - main
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+notifications:
+  email: false
