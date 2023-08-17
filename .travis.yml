@@ -11,9 +11,6 @@ install:
   - sudo apt-get install -y libonig-dev
   - composer install --no-interaction
 
-before_script:
-  - cp .env.travis .env
-
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
 
