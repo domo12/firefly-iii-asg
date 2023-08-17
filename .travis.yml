@@ -12,33 +12,7 @@ install:
   - composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit tests\unit\Support\NavigationAddPeriodTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\NavigationStartOfPeriodTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\CalculatorProvider.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\CalculatorTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\BimonthlyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\DailyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\FortnightlyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\HalfYearlyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\IntervalProvider.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\IntervalTestCase.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\MonthlyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\QuarterlyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\WeeklyTest.php
-
-  - vendor/bin/phpunit tests\unit\Support\Calendar\Periodicity\YearlyTest.php
+  - vendor/bin/phpunit --configuration phpunit.xml
 
 branches:
   only:
