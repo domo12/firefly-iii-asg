@@ -12,22 +12,18 @@ install:
   - composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit --configuration phpunit.xml || true
+  - cd firefly-iii-asg
+  - vendor/bin/phpunit --configuration phpunit.xml
 
 branches:
   only:
-    - main
+    - 4.3-dev
 
 cache:
   directories:
     - vendor
     - $HOME/.composer/cache
 
-services:
-  - mysql
-
-before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 notifications:
   email: false
